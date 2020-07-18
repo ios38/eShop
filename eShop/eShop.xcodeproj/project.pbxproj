@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		50111E8D24C2FAF80050DBD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50111E8C24C2FAF80050DBD9 /* AppDelegate.swift */; };
 		50111E8F24C2FAF80050DBD9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50111E8E24C2FAF80050DBD9 /* SceneDelegate.swift */; };
-		50111E9124C2FAF80050DBD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50111E9024C2FAF80050DBD9 /* ViewController.swift */; };
-		50111E9424C2FAF80050DBD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50111E9224C2FAF80050DBD9 /* Main.storyboard */; };
 		50111E9624C2FAFB0050DBD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50111E9524C2FAFB0050DBD9 /* Assets.xcassets */; };
 		50111E9924C2FAFB0050DBD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50111E9724C2FAFB0050DBD9 /* LaunchScreen.storyboard */; };
 		50111EA424C2FAFC0050DBD9 /* eShopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50111EA324C2FAFC0050DBD9 /* eShopTests.swift */; };
@@ -38,8 +36,6 @@
 		50111E8924C2FAF80050DBD9 /* eShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50111E8C24C2FAF80050DBD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50111E8E24C2FAF80050DBD9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		50111E9024C2FAF80050DBD9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		50111E9324C2FAF80050DBD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		50111E9524C2FAFB0050DBD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50111E9824C2FAFB0050DBD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50111E9A24C2FAFB0050DBD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,13 +95,10 @@
 		50111E8B24C2FAF80050DBD9 /* eShop */ = {
 			isa = PBXGroup;
 			children = (
-				50111E8C24C2FAF80050DBD9 /* AppDelegate.swift */,
-				50111E8E24C2FAF80050DBD9 /* SceneDelegate.swift */,
-				50111E9024C2FAF80050DBD9 /* ViewController.swift */,
-				50111E9224C2FAF80050DBD9 /* Main.storyboard */,
-				50111E9524C2FAFB0050DBD9 /* Assets.xcassets */,
-				50111E9724C2FAFB0050DBD9 /* LaunchScreen.storyboard */,
-				50111E9A24C2FAFB0050DBD9 /* Info.plist */,
+				50111EBC24C301920050DBD9 /* App */,
+				50111EBD24C301A20050DBD9 /* Core */,
+				50111EBE24C301C00050DBD9 /* Resources */,
+				50111EBF24C301DB0050DBD9 /* Environments */,
 			);
 			path = eShop;
 			sourceTree = "<group>";
@@ -126,6 +119,71 @@
 				50111EB024C2FAFC0050DBD9 /* Info.plist */,
 			);
 			path = eShopUITests;
+			sourceTree = "<group>";
+		};
+		50111EBC24C301920050DBD9 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				50111E8C24C2FAF80050DBD9 /* AppDelegate.swift */,
+				50111E8E24C2FAF80050DBD9 /* SceneDelegate.swift */,
+				50111EC324C302410050DBD9 /* Flows */,
+				50111EC224C302360050DBD9 /* Assembly */,
+				50111EC124C302220050DBD9 /* Entity */,
+				50111EC024C301F80050DBD9 /* Business Logic */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		50111EBD24C301A20050DBD9 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		50111EBE24C301C00050DBD9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				50111E9524C2FAFB0050DBD9 /* Assets.xcassets */,
+				50111E9724C2FAFB0050DBD9 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		50111EBF24C301DB0050DBD9 /* Environments */ = {
+			isa = PBXGroup;
+			children = (
+				50111E9A24C2FAFB0050DBD9 /* Info.plist */,
+			);
+			path = Environments;
+			sourceTree = "<group>";
+		};
+		50111EC024C301F80050DBD9 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		50111EC124C302220050DBD9 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		50111EC224C302360050DBD9 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		50111EC324C302410050DBD9 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Flows;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,7 +292,6 @@
 			files = (
 				50111E9924C2FAFB0050DBD9 /* LaunchScreen.storyboard in Resources */,
 				50111E9624C2FAFB0050DBD9 /* Assets.xcassets in Resources */,
-				50111E9424C2FAF80050DBD9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +316,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50111E9124C2FAF80050DBD9 /* ViewController.swift in Sources */,
 				50111E8D24C2FAF80050DBD9 /* AppDelegate.swift in Sources */,
 				50111E8F24C2FAF80050DBD9 /* SceneDelegate.swift in Sources */,
 			);
@@ -297,14 +353,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		50111E9224C2FAF80050DBD9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				50111E9324C2FAF80050DBD9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		50111E9724C2FAFB0050DBD9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -436,7 +484,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3JD57QL5JP;
-				INFOPLIST_FILE = eShop/Info.plist;
+				INFOPLIST_FILE = eShop/Environments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,7 +502,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3JD57QL5JP;
-				INFOPLIST_FILE = eShop/Info.plist;
+				INFOPLIST_FILE = eShop/Environments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
