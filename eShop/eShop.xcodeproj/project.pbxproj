@@ -23,6 +23,8 @@
 		50111EF824C5CA720050DBD9 /* ErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50111EF524C5CA720050DBD9 /* ErrorParser.swift */; };
 		50111EF924C5CA720050DBD9 /* RequestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50111EF624C5CA720050DBD9 /* RequestRouter.swift */; };
 		50111EFA24C5CA720050DBD9 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50111EF724C5CA720050DBD9 /* DataRequest.swift */; };
+		50111EFC24C5CE000050DBD9 /* RegistrationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50111EFB24C5CE000050DBD9 /* RegistrationResult.swift */; };
+		50111EFE24C5CE1B0050DBD9 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50111EFD24C5CE1B0050DBD9 /* Registration.swift */; };
 		CC6ACACFD32B4234C5DF2118 /* Pods_eShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 624DBD5E9DE204491AD69E3D /* Pods_eShop.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,8 @@
 		50111EF524C5CA720050DBD9 /* ErrorParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorParser.swift; sourceTree = "<group>"; };
 		50111EF624C5CA720050DBD9 /* RequestRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRouter.swift; sourceTree = "<group>"; };
 		50111EF724C5CA720050DBD9 /* DataRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
+		50111EFB24C5CE000050DBD9 /* RegistrationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationResult.swift; sourceTree = "<group>"; };
+		50111EFD24C5CE1B0050DBD9 /* Registration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 		624DBD5E9DE204491AD69E3D /* Pods_eShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74AB345516A8D323E0849B3A /* Pods-eShopTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShopTests.debug.xcconfig"; path = "Target Support Files/Pods-eShopTests/Pods-eShopTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CD0C5EC601DC3C8F586B8040 /* Pods-eShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShop.debug.xcconfig"; path = "Target Support Files/Pods-eShop/Pods-eShop.debug.xcconfig"; sourceTree = "<group>"; };
@@ -204,8 +208,9 @@
 		50111EC124C302220050DBD9 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				50111EEA24C5CA2D0050DBD9 /* AuthResult.swift */,
 				50111EE924C5CA2D0050DBD9 /* User.swift */,
+				50111EEA24C5CA2D0050DBD9 /* AuthResult.swift */,
+				50111EFB24C5CE000050DBD9 /* RegistrationResult.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				50111EEE24C5CA4D0050DBD9 /* Auth.swift */,
+				50111EFD24C5CE1B0050DBD9 /* Registration.swift */,
 				50111EF024C5CA4D0050DBD9 /* RequestFactory.swift */,
 			);
 			path = Network;
@@ -508,6 +514,8 @@
 				50111EFA24C5CA720050DBD9 /* DataRequest.swift in Sources */,
 				50111EEB24C5CA2D0050DBD9 /* User.swift in Sources */,
 				50111EEC24C5CA2D0050DBD9 /* AuthResult.swift in Sources */,
+				50111EFE24C5CE1B0050DBD9 /* Registration.swift in Sources */,
+				50111EFC24C5CE000050DBD9 /* RegistrationResult.swift in Sources */,
 				50111EF824C5CA720050DBD9 /* ErrorParser.swift in Sources */,
 				50111E8D24C2FAF80050DBD9 /* AppDelegate.swift in Sources */,
 				50111ED024C46DB00050DBD9 /* ViewController.swift in Sources */,
