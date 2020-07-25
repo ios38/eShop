@@ -15,7 +15,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        /*
         let requestFactory = RequestFactory()
 
         self.registration = requestFactory.makeRegistrationRequestFactory()
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
-
+        */
     }
     
 }

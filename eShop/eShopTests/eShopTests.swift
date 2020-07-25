@@ -7,28 +7,67 @@
 //
 
 import XCTest
+import Alamofire
 @testable import eShop
 
 class eShopTests: XCTestCase {
+    var errorParser: ErrorParserStub!
+    let expectation = XCTestExpectation(description: "Download failed")
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        errorParser = ErrorParserStub()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+        errorParser = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testRegistration() {
+        let registration = Registration(errorParser: errorParser, session: Session())
+        registration.register(userName: "test", password: "123", email: "test@gmail.com") { [weak self] (response: AFDataResponse<RegistrationResult>) in
+            switch response.result {
+                case .failure(_):
+                    XCTFail()
+                case .success(let data):
+                    print("\n\(data)\n")
+                    //XCTAssert(true)
+                    XCTAssertEqual(data.result, 1)
+            }
+            self?.expectation.fulfill()
         }
+        wait(for: [expectation], timeout: 10)
+    }
+
+    func testLogin() {
+        let auth = Auth(errorParser: errorParser, session: Session())
+        auth.login(userName: "test", password: "123") { [weak self] (response: AFDataResponse<LoginResult>) in
+            switch response.result {
+                case .failure(_):
+                    XCTFail()
+                case .success(let data):
+                    print("\n\(data)\n")
+                    XCTAssertEqual(data.result, 1)
+            }
+            self?.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10)
+    }
+    
+    func testLogOut() {
+        let auth = Auth(errorParser: errorParser, session: Session())
+        auth.logout(userId: "123") { [weak self] (response: AFDataResponse<LogoutResult>) in
+            switch response.result {
+                case .failure(_):
+                    XCTFail()
+                case .success(let data):
+                    print("\n\(data)\n")
+                    XCTAssertEqual(data.result, 1)
+            }
+            self?.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10)
     }
 
 }
