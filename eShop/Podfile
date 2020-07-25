@@ -6,7 +6,7 @@ target 'eShop' do
   use_frameworks!
 
   # Pods for eShop
-  pod 'Alamofire','4.9.1'
+  pod 'Alamofire'
 
   target 'eShopTests' do
     inherit! :search_paths
