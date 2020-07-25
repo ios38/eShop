@@ -12,12 +12,13 @@ import Alamofire
 class ViewController: UIViewController {
     var auth: AuthRequestFactory?
     var registration: RegistrationRequestFactory?
+    var goods: GoodsRequestFactory?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
+        
         let requestFactory = RequestFactory()
-
+        /*
         self.registration = requestFactory.makeRegistrationRequestFactory()
         guard let registration = self.registration else { return }
         
@@ -29,8 +30,8 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
             }
 
-        }
-
+        }*/
+        /*
         self.auth = requestFactory.makeAuthRequestFactory()
         guard let auth = self.auth else { return }
 
@@ -41,8 +42,8 @@ class ViewController: UIViewController {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-        }
-        
+        }*/
+        /*
         auth.logout(userId: "123") { response in
             switch response.result {
             case .success(let result):
@@ -50,8 +51,20 @@ class ViewController: UIViewController {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-        }
-        */
+        }*/
+        /*
+        self.goods = requestFactory.makeGoodsRequestFactory()
+        guard let goods = self.goods else { return }
+
+        goods.getGoodById(goodId: "1") { response in
+            switch response.result {
+            case .success(let catalog):
+                print(catalog)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }*/
+
     }
     
 }

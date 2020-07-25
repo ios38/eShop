@@ -69,5 +69,20 @@ class eShopTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 10)
     }
+    
+    func testGetGoodById() {
+        let goods = Goods(errorParser: errorParser, session: Session())
+        goods.getGoodById(goodId: "1") { [weak self] (response: AFDataResponse<GoodResult>) in
+            switch response.result {
+                case .failure(_):
+                    XCTFail()
+                case .success(let data):
+                    print("\n\(data)\n")
+                    XCTAssertEqual(data.result, 1)
+            }
+            self?.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10)
+    }
 
 }
