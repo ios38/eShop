@@ -11,7 +11,6 @@ import Alamofire
 protocol RegistrationRequestFactory {
     func register(userName: String,
                   password: String,
-                  email: String,
                   completionHandler: @escaping (AFDataResponse<RegistrationResult>) -> Void)
 }
 
@@ -19,8 +18,9 @@ class Registration: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let session: Session
     let queue: DispatchQueue?
-    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
-    
+    //let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    let baseUrl = URL(string: "http://127.0.0.1:8080/")!
+
     init(
         errorParser: AbstractErrorParser,
         session: Session,
@@ -34,9 +34,8 @@ class Registration: AbstractRequestFactory {
 extension Registration: RegistrationRequestFactory {
     func register(userName: String,
                   password: String,
-                     email: String,
          completionHandler: @escaping (AFDataResponse<RegistrationResult>) -> Void) {
-        let requestModel = Registration(baseUrl: baseUrl, login: userName, password: password, email: email)
+        let requestModel = Registration(baseUrl: baseUrl, login: userName, password: password)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
@@ -45,16 +44,15 @@ extension Registration {
     struct Registration: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
-        let path: String = "registerUser.json"
-        
+        //let path: String = "registerUser.json"
+        let path: String = "register"
+
         let login: String
         let password: String
-        let email: String
         var parameters: Parameters? {
             return [
                 "username": login,
-                "password": password,
-                "emal": email
+                "password": password
             ]
         }
     }

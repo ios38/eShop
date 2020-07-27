@@ -18,11 +18,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let requestFactory = RequestFactory()
-        /*
+        
         self.registration = requestFactory.makeRegistrationRequestFactory()
         guard let registration = self.registration else { return }
         
-        registration.register(userName: "user", password: "password", email: "user@gmail.com") { response in
+        registration.register(userName: "Max", password: "123") { response in
             switch response.result {
             case .success(let registration):
                 print(registration)
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
             }
 
-        }*/
+        }
         /*
         self.auth = requestFactory.makeAuthRequestFactory()
         guard let auth = self.auth else { return }

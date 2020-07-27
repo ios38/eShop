@@ -26,7 +26,7 @@ class eShopTests: XCTestCase {
 
     func testRegistration() {
         let registration = Registration(errorParser: errorParser, session: Session())
-        registration.register(userName: "test", password: "123", email: "test@gmail.com") { [weak self] (response: AFDataResponse<RegistrationResult>) in
+        registration.register(userName: "Max", password: "123") { [weak self] (response: AFDataResponse<RegistrationResult>) in
             switch response.result {
                 case .failure(_):
                     XCTFail()
