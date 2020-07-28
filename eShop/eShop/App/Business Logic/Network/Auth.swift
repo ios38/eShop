@@ -11,15 +11,16 @@ import Alamofire
 
 protocol AuthRequestFactory {
     func login(userName: String, password: String, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void)
-    func logout(userId: String, completionHandler: @escaping (AFDataResponse<LogoutResult>) -> Void)
+    func logout(userId: Int, completionHandler: @escaping (AFDataResponse<LogoutResult>) -> Void)
 }
 
 class Auth: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let session: Session
     let queue: DispatchQueue?
-    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
-    
+    //let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    let baseUrl = URL(string: "http://127.0.0.1:8080/")!
+
     init(
         errorParser: AbstractErrorParser,
         session: Session,
@@ -36,7 +37,7 @@ extension Auth: AuthRequestFactory {
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
-    func logout(userId: String, completionHandler: @escaping (AFDataResponse<LogoutResult>) -> Void) {
+    func logout(userId: Int, completionHandler: @escaping (AFDataResponse<LogoutResult>) -> Void) {
         let requestModel = Logout(baseUrl: baseUrl, userId: userId)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
@@ -47,8 +48,9 @@ extension Auth {
     struct Login: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
-        let path: String = "login.json"
-        
+        //let path: String = "login.json"
+        let path: String = "login"
+
         let login: String
         let password: String
         var parameters: Parameters? {
@@ -62,9 +64,10 @@ extension Auth {
     struct Logout: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
-        let path: String = "logout.json"
-        
-        let userId: String
+        //let path: String = "logout.json"
+        let path: String = "logout"
+
+        let userId: Int
         var parameters: Parameters? {
             return [
                 "id_user": userId

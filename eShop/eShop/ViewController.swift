@@ -10,15 +10,15 @@ import UIKit
 import Alamofire
 
 class ViewController: UIViewController {
-    var auth: AuthRequestFactory?
-    var registration: RegistrationRequestFactory?
+    //var auth: AuthRequestFactory?
+    //var registration: RegistrationRequestFactory?
     var goods: GoodsRequestFactory?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let requestFactory = RequestFactory()
-        
+        /*
         self.registration = requestFactory.makeRegistrationRequestFactory()
         guard let registration = self.registration else { return }
         
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
             }
 
-        }
+        }*/
         /*
         self.auth = requestFactory.makeAuthRequestFactory()
         guard let auth = self.auth else { return }
@@ -42,9 +42,9 @@ class ViewController: UIViewController {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-        }*/
-        /*
-        auth.logout(userId: "123") { response in
+        }
+        
+        auth.logout(userId: 123) { response in
             switch response.result {
             case .success(let result):
                 print(result)
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         self.goods = requestFactory.makeGoodsRequestFactory()
         guard let goods = self.goods else { return }
 
-        goods.getGoodById(goodId: "1") { response in
+        goods.getGoods(page: 1, category:1) { response in
             switch response.result {
             case .success(let catalog):
                 print(catalog)
@@ -64,7 +64,14 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }*/
-
+        /*
+        goods.getGoodById(goodId: 123) { response in
+            switch response.result {
+            case .success(let good):
+                print(good)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }*/
     }
-    
 }

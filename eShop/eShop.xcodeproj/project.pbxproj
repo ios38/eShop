@@ -25,8 +25,9 @@
 		50111EFA24C5CA720050DBD9 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50111EF724C5CA720050DBD9 /* DataRequest.swift */; };
 		50111EFC24C5CE000050DBD9 /* RegistrationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50111EFB24C5CE000050DBD9 /* RegistrationResult.swift */; };
 		50111EFE24C5CE1B0050DBD9 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50111EFD24C5CE1B0050DBD9 /* Registration.swift */; };
+		505B674624CF0D320043E71A /* Good.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505B674524CF0D320043E71A /* Good.swift */; };
 		50EAF52324CC582A00A8AB8E /* PostStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EAF52224CC582A00A8AB8E /* PostStub.swift */; };
-		50EAF52524CC5C6100A8AB8E /* GoodById.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EAF52424CC5C6100A8AB8E /* GoodById.swift */; };
+		50EAF52524CC5C6100A8AB8E /* Goods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EAF52424CC5C6100A8AB8E /* Goods.swift */; };
 		50EAF52724CC5CC100A8AB8E /* GoodsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EAF52624CC5CC100A8AB8E /* GoodsResult.swift */; };
 		CC6ACACFD32B4234C5DF2118 /* Pods_eShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 624DBD5E9DE204491AD69E3D /* Pods_eShop.framework */; };
 /* End PBXBuildFile section */
@@ -76,8 +77,9 @@
 		50111EF724C5CA720050DBD9 /* DataRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
 		50111EFB24C5CE000050DBD9 /* RegistrationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationResult.swift; sourceTree = "<group>"; };
 		50111EFD24C5CE1B0050DBD9 /* Registration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
+		505B674524CF0D320043E71A /* Good.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Good.swift; sourceTree = "<group>"; };
 		50EAF52224CC582A00A8AB8E /* PostStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostStub.swift; sourceTree = "<group>"; };
-		50EAF52424CC5C6100A8AB8E /* GoodById.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodById.swift; sourceTree = "<group>"; };
+		50EAF52424CC5C6100A8AB8E /* Goods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goods.swift; sourceTree = "<group>"; };
 		50EAF52624CC5CC100A8AB8E /* GoodsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsResult.swift; sourceTree = "<group>"; };
 		624DBD5E9DE204491AD69E3D /* Pods_eShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74AB345516A8D323E0849B3A /* Pods-eShopTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShopTests.debug.xcconfig"; path = "Target Support Files/Pods-eShopTests/Pods-eShopTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				50111EE924C5CA2D0050DBD9 /* User.swift */,
+				505B674524CF0D320043E71A /* Good.swift */,
 				50111EEA24C5CA2D0050DBD9 /* AuthResult.swift */,
 				50111EFB24C5CE000050DBD9 /* RegistrationResult.swift */,
 				50EAF52624CC5CC100A8AB8E /* GoodsResult.swift */,
@@ -242,8 +245,8 @@
 			children = (
 				50111EEE24C5CA4D0050DBD9 /* Auth.swift */,
 				50111EFD24C5CE1B0050DBD9 /* Registration.swift */,
+				50EAF52424CC5C6100A8AB8E /* Goods.swift */,
 				50111EF024C5CA4D0050DBD9 /* RequestFactory.swift */,
-				50EAF52424CC5C6100A8AB8E /* GoodById.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -519,7 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50EAF52524CC5C6100A8AB8E /* GoodById.swift in Sources */,
+				50EAF52524CC5C6100A8AB8E /* Goods.swift in Sources */,
 				50111EF324C5CA4D0050DBD9 /* RequestFactory.swift in Sources */,
 				50EAF52724CC5CC100A8AB8E /* GoodsResult.swift in Sources */,
 				50111EFA24C5CA720050DBD9 /* DataRequest.swift in Sources */,
@@ -533,6 +536,7 @@
 				50111ED024C46DB00050DBD9 /* ViewController.swift in Sources */,
 				50111E8F24C2FAF80050DBD9 /* SceneDelegate.swift in Sources */,
 				50111EF124C5CA4D0050DBD9 /* Auth.swift in Sources */,
+				505B674624CF0D320043E71A /* Good.swift in Sources */,
 				50111EF924C5CA720050DBD9 /* RequestRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
