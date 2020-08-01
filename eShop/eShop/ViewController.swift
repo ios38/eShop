@@ -12,7 +12,8 @@ import Alamofire
 class ViewController: UIViewController {
     //var auth: AuthRequestFactory?
     //var registration: RegistrationRequestFactory?
-    var goods: GoodsRequestFactory?
+    //var goods: GoodsRequestFactory?
+    var reviews: ReviewsRequestFactory?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,5 +74,36 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }*/
+        
+        self.reviews = requestFactory.makeReviewsRequestFactory()
+        guard let reviews = self.reviews else { return }
+        /*
+        reviews.getReviews(goodId: 123) { response in
+            switch response.result {
+            case .success(let good):
+                print(good)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }*/
+        /*
+        reviews.addReview(goodId: 123, review:"Отличный товар!") { response in
+            switch response.result {
+            case .success(let good):
+                print(good)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }*/
+        /*
+        reviews.removeReview(reviewId: 123) { response in
+            switch response.result {
+            case .success(let good):
+                print(good)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }*/
+
     }
 }

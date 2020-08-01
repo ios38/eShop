@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+struct Review: Codable {
+    let userName: String
+    let review: String
+    
+    enum CodingKeys: String, CodingKey {
+        case userName = "user_name"
+        case review = "review"
+    }
+}
