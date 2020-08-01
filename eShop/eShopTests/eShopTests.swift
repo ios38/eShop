@@ -99,5 +99,50 @@ class eShopTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 10)
     }
+    
+    func testGetReviews() {
+        let reviews = Reviews(errorParser: errorParser, session: Session())
+        reviews.getReviews(goodId: 123) { [weak self] (response: AFDataResponse<GetReviewsResult>) in
+            switch response.result {
+                case .failure(_):
+                    XCTFail()
+                case .success(let data):
+                    print("\n\(data)\n")
+                    XCTAssertEqual(data.result, 1)
+            }
+            self?.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10)
+    }
+    
+    func testAddReview() {
+        let reviews = Reviews(errorParser: errorParser, session: Session())
+        reviews.addReview(goodId: 123, review:"Отличный товар!") { [weak self] (response: AFDataResponse<AddReviewResult>) in
+            switch response.result {
+                case .failure(_):
+                    XCTFail()
+                case .success(let data):
+                    print("\n\(data)\n")
+                    XCTAssertEqual(data.result, 1)
+            }
+            self?.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10)
+    }
+
+    func testRemoveReview() {
+        let reviews = Reviews(errorParser: errorParser, session: Session())
+        reviews.removeReview(reviewId: 123) { [weak self] (response: AFDataResponse<RemoveReviewResult>) in
+            switch response.result {
+                case .failure(_):
+                    XCTFail()
+                case .success(let data):
+                    print("\n\(data)\n")
+                    XCTAssertEqual(data.result, 1)
+            }
+            self?.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10)
+    }
 
 }
