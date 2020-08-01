@@ -26,7 +26,7 @@ class eShopTests: XCTestCase {
 
     func testRegistration() {
         let registration = Registration(errorParser: errorParser, session: Session())
-        registration.register(userName: "test", password: "123", email: "test@gmail.com") { [weak self] (response: AFDataResponse<RegistrationResult>) in
+        registration.register(userName: "Max", password: "123") { [weak self] (response: AFDataResponse<RegistrationResult>) in
             switch response.result {
                 case .failure(_):
                     XCTFail()
@@ -42,7 +42,7 @@ class eShopTests: XCTestCase {
 
     func testLogin() {
         let auth = Auth(errorParser: errorParser, session: Session())
-        auth.login(userName: "test", password: "123") { [weak self] (response: AFDataResponse<LoginResult>) in
+        auth.login(userName: "Max", password: "123") { [weak self] (response: AFDataResponse<LoginResult>) in
             switch response.result {
                 case .failure(_):
                     XCTFail()
@@ -57,7 +57,7 @@ class eShopTests: XCTestCase {
     
     func testLogOut() {
         let auth = Auth(errorParser: errorParser, session: Session())
-        auth.logout(userId: "123") { [weak self] (response: AFDataResponse<LogoutResult>) in
+        auth.logout(userId: 123) { [weak self] (response: AFDataResponse<LogoutResult>) in
             switch response.result {
                 case .failure(_):
                     XCTFail()
@@ -70,9 +70,24 @@ class eShopTests: XCTestCase {
         wait(for: [expectation], timeout: 10)
     }
     
+    func testGetGoods() {
+        let goods = Goods(errorParser: errorParser, session: Session())
+        goods.getGoods(page: 1, category: 1) { [weak self] (response: AFDataResponse<GoodsResult>) in
+            switch response.result {
+                case .failure(_):
+                    XCTFail()
+                case .success(let data):
+                    print("\n\(data)\n")
+                    XCTAssert(data.count > 0)
+            }
+            self?.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10)
+    }
+
     func testGetGoodById() {
         let goods = Goods(errorParser: errorParser, session: Session())
-        goods.getGoodById(goodId: "1") { [weak self] (response: AFDataResponse<GoodResult>) in
+        goods.getGoodById(goodId: 123) { [weak self] (response: AFDataResponse<GoodResult>) in
             switch response.result {
                 case .failure(_):
                     XCTFail()

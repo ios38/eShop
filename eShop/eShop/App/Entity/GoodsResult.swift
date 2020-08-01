@@ -8,6 +8,23 @@
 
 import Foundation
 
+typealias GoodsResult = [Good]
+
+/*
+[
+{
+    "id_product": 123,
+    "product_name": "Ноутбук",
+    "price": 45600
+},
+{
+    "id_product": 456,
+    "product_name": "Мышка",
+    "price": 1000
+}
+]
+*/
+
 struct GoodResult: Codable {
     let result: Int
     let name: String
@@ -30,3 +47,4 @@ struct GoodResult: Codable {
   "product_description": "Мощный игровой ноутбук"
 }
 */
+

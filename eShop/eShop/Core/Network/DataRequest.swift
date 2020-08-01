@@ -28,28 +28,14 @@ extension AbstractRequestFactory {
         request: URLRequestConvertible,
         completionHandler: @escaping (AFDataResponse<T>) -> Void)
         -> DataRequest {
-            print(request)
             return session
                 .request(request)
                 .responseDecodable(completionHandler: completionHandler)
+                //.responseJSON( completionHandler: { response in
+                //    debugPrint(response)
+                //})
     }
 }
-
-/*
-extension DataRequest {
-    
-    @discardableResult
-    public func responseDecodable<T: Decodable>(of type: T.Type = T.self,
-                                                queue: DispatchQueue = .main,
-                                                decoder: DataDecoder = JSONDecoder(),
-                                                completionHandler: @escaping (AFDataResponse<T>) -> Void) -> Self {
-        
-        return response(queue: queue,
-                        responseSerializer: DecodableResponseSerializer(decoder: decoder),
-                        completionHandler: completionHandler)
-    }
-}
-*/
 
 class CustomDecodableSerializer<T: Decodable>: DataResponseSerializerProtocol {
     private let errorParser: AbstractErrorParser
@@ -59,11 +45,6 @@ class CustomDecodableSerializer<T: Decodable>: DataResponseSerializerProtocol {
     }
 
     func serialize(request: URLRequest?, response: HTTPURLResponse?, data: Data?, error: Error?) throws -> T {
-        print(request ?? "")
-        print(response ?? "")
-        print(data ?? "")
-        print(error ?? "")
-
         if let error = errorParser.parse(response: response, data: data, error: error) {
             throw error
         }
