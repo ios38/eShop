@@ -47,4 +47,3 @@ struct GoodResult: Codable {
   "product_description": "Мощный игровой ноутбук"
 }
 */
-

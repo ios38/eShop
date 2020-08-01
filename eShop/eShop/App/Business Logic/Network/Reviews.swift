@@ -11,7 +11,7 @@ import Alamofire
 
 protocol ReviewsRequestFactory {
     func getReviews(goodId: Int, completionHandler: @escaping (AFDataResponse<GetReviewsResult>) -> Void)
-    func addReview(goodId: Int, review:String, completionHandler: @escaping (AFDataResponse<AddReviewResult>) -> Void)
+    func addReview(goodId: Int, review: String, completionHandler: @escaping (AFDataResponse<AddReviewResult>) -> Void)
     func removeReview(reviewId: Int, completionHandler: @escaping (AFDataResponse<RemoveReviewResult>) -> Void)
 }
 
@@ -38,7 +38,7 @@ extension Reviews: ReviewsRequestFactory {
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
-    func addReview(goodId: Int, review:String, completionHandler: @escaping (AFDataResponse<AddReviewResult>) -> Void) {
+    func addReview(goodId: Int, review: String, completionHandler: @escaping (AFDataResponse<AddReviewResult>) -> Void) {
         let requestModel = AddReview(baseUrl: baseUrl, goodId: goodId, review: review)
         self.request(request: requestModel, completionHandler: completionHandler)
     }

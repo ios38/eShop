@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let requestFactory = RequestFactory()
+        //let requestFactory = RequestFactory()
         /*
         self.registration = requestFactory.makeRegistrationRequestFactory()
         guard let registration = self.registration else { return }
@@ -74,10 +74,10 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }*/
-        
+        /*
         self.reviews = requestFactory.makeReviewsRequestFactory()
         guard let reviews = self.reviews else { return }
-        /*
+        
         reviews.getReviews(goodId: 123) { response in
             switch response.result {
             case .success(let good):

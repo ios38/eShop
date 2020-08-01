@@ -7,6 +7,7 @@
 //
 
 import Foundation
+//swiftlint:disable identifier_name
 
 struct User: Codable {
     let id: Int

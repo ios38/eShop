@@ -9,6 +9,7 @@
 import XCTest
 import Alamofire
 @testable import eShop
+//swiftlint:disable type_name xctfail_message empty_enum_arguments switch_case_alignment
 
 class eShopTests: XCTestCase {
     var errorParser: ErrorParserStub!
@@ -117,7 +118,7 @@ class eShopTests: XCTestCase {
     
     func testAddReview() {
         let reviews = Reviews(errorParser: errorParser, session: Session())
-        reviews.addReview(goodId: 123, review:"Отличный товар!") { [weak self] (response: AFDataResponse<AddReviewResult>) in
+        reviews.addReview(goodId: 123, review: "Отличный товар!") { [weak self] (response: AFDataResponse<AddReviewResult>) in
             switch response.result {
                 case .failure(_):
                     XCTFail()
