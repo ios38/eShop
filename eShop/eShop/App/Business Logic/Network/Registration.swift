@@ -7,6 +7,7 @@
 //
 import Foundation
 import Alamofire
+//swiftlint:disable vertical_parameter_alignment
 
 protocol RegistrationRequestFactory {
     func register(userName: String,

@@ -26,6 +26,9 @@
 		50111EFC24C5CE000050DBD9 /* RegistrationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50111EFB24C5CE000050DBD9 /* RegistrationResult.swift */; };
 		50111EFE24C5CE1B0050DBD9 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50111EFD24C5CE1B0050DBD9 /* Registration.swift */; };
 		505B674624CF0D320043E71A /* Good.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505B674524CF0D320043E71A /* Good.swift */; };
+		50A8C6C224D543E700B9BA4E /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8C6C124D543E700B9BA4E /* Reviews.swift */; };
+		50A8C6C424D5440700B9BA4E /* ReviewsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8C6C324D5440700B9BA4E /* ReviewsResult.swift */; };
+		50A8C6C624D549CF00B9BA4E /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8C6C524D549CF00B9BA4E /* Review.swift */; };
 		50EAF52324CC582A00A8AB8E /* PostStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EAF52224CC582A00A8AB8E /* PostStub.swift */; };
 		50EAF52524CC5C6100A8AB8E /* Goods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EAF52424CC5C6100A8AB8E /* Goods.swift */; };
 		50EAF52724CC5CC100A8AB8E /* GoodsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EAF52624CC5CC100A8AB8E /* GoodsResult.swift */; };
@@ -78,6 +81,9 @@
 		50111EFB24C5CE000050DBD9 /* RegistrationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationResult.swift; sourceTree = "<group>"; };
 		50111EFD24C5CE1B0050DBD9 /* Registration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 		505B674524CF0D320043E71A /* Good.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Good.swift; sourceTree = "<group>"; };
+		50A8C6C124D543E700B9BA4E /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
+		50A8C6C324D5440700B9BA4E /* ReviewsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsResult.swift; sourceTree = "<group>"; };
+		50A8C6C524D549CF00B9BA4E /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		50EAF52224CC582A00A8AB8E /* PostStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostStub.swift; sourceTree = "<group>"; };
 		50EAF52424CC5C6100A8AB8E /* Goods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goods.swift; sourceTree = "<group>"; };
 		50EAF52624CC5CC100A8AB8E /* GoodsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsResult.swift; sourceTree = "<group>"; };
@@ -219,7 +225,9 @@
 			children = (
 				50111EE924C5CA2D0050DBD9 /* User.swift */,
 				505B674524CF0D320043E71A /* Good.swift */,
+				50A8C6C524D549CF00B9BA4E /* Review.swift */,
 				50111EEA24C5CA2D0050DBD9 /* AuthResult.swift */,
+				50A8C6C324D5440700B9BA4E /* ReviewsResult.swift */,
 				50111EFB24C5CE000050DBD9 /* RegistrationResult.swift */,
 				50EAF52624CC5CC100A8AB8E /* GoodsResult.swift */,
 			);
@@ -246,6 +254,7 @@
 				50111EEE24C5CA4D0050DBD9 /* Auth.swift */,
 				50111EFD24C5CE1B0050DBD9 /* Registration.swift */,
 				50EAF52424CC5C6100A8AB8E /* Goods.swift */,
+				50A8C6C124D543E700B9BA4E /* Reviews.swift */,
 				50111EF024C5CA4D0050DBD9 /* RequestFactory.swift */,
 			);
 			path = Network;
@@ -296,6 +305,7 @@
 				50111E8624C2FAF80050DBD9 /* Frameworks */,
 				50111E8724C2FAF80050DBD9 /* Resources */,
 				F72605B936353A598CFE5868 /* [CP] Embed Pods Frameworks */,
+				50A8C6C724D575A500B9BA4E /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -459,6 +469,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		50A8C6C724D575A500B9BA4E /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		6DF77ED42DCFFCEF3C703A1D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -532,9 +560,12 @@
 				50111EFC24C5CE000050DBD9 /* RegistrationResult.swift in Sources */,
 				50111EF824C5CA720050DBD9 /* ErrorParser.swift in Sources */,
 				50111E8D24C2FAF80050DBD9 /* AppDelegate.swift in Sources */,
+				50A8C6C424D5440700B9BA4E /* ReviewsResult.swift in Sources */,
 				50EAF52324CC582A00A8AB8E /* PostStub.swift in Sources */,
 				50111ED024C46DB00050DBD9 /* ViewController.swift in Sources */,
 				50111E8F24C2FAF80050DBD9 /* SceneDelegate.swift in Sources */,
+				50A8C6C624D549CF00B9BA4E /* Review.swift in Sources */,
+				50A8C6C224D543E700B9BA4E /* Reviews.swift in Sources */,
 				50111EF124C5CA4D0050DBD9 /* Auth.swift in Sources */,
 				505B674624CF0D320043E71A /* Good.swift in Sources */,
 				50111EF924C5CA720050DBD9 /* RequestRouter.swift in Sources */,
