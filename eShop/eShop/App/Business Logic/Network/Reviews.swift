@@ -34,7 +34,7 @@ class Reviews: AbstractRequestFactory {
 
 extension Reviews: ReviewsRequestFactory {
     func getReviews(goodId: Int, completionHandler: @escaping (AFDataResponse<GetReviewsResult>) -> Void) {
-        let requestModel = Reviews(baseUrl: baseUrl, goodId: goodId)
+        let requestModel = GetReviews(baseUrl: baseUrl, goodId: goodId)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
@@ -51,7 +51,7 @@ extension Reviews: ReviewsRequestFactory {
 }
 
 extension Reviews {
-    struct Reviews: RequestRouter {
+    struct GetReviews: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
         //let path: String = ""
