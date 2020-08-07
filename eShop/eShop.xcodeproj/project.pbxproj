@@ -29,6 +29,8 @@
 		50A8C6C224D543E700B9BA4E /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8C6C124D543E700B9BA4E /* Reviews.swift */; };
 		50A8C6C424D5440700B9BA4E /* ReviewsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8C6C324D5440700B9BA4E /* ReviewsResult.swift */; };
 		50A8C6C624D549CF00B9BA4E /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8C6C524D549CF00B9BA4E /* Review.swift */; };
+		50A8C6C924D846EF00B9BA4E /* BasketResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8C6C824D846EF00B9BA4E /* BasketResult.swift */; };
+		50A8C6CB24D847DB00B9BA4E /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8C6CA24D847DB00B9BA4E /* Basket.swift */; };
 		50EAF52324CC582A00A8AB8E /* PostStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EAF52224CC582A00A8AB8E /* PostStub.swift */; };
 		50EAF52524CC5C6100A8AB8E /* Goods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EAF52424CC5C6100A8AB8E /* Goods.swift */; };
 		50EAF52724CC5CC100A8AB8E /* GoodsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EAF52624CC5CC100A8AB8E /* GoodsResult.swift */; };
@@ -84,6 +86,8 @@
 		50A8C6C124D543E700B9BA4E /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		50A8C6C324D5440700B9BA4E /* ReviewsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsResult.swift; sourceTree = "<group>"; };
 		50A8C6C524D549CF00B9BA4E /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		50A8C6C824D846EF00B9BA4E /* BasketResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketResult.swift; sourceTree = "<group>"; };
+		50A8C6CA24D847DB00B9BA4E /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
 		50EAF52224CC582A00A8AB8E /* PostStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostStub.swift; sourceTree = "<group>"; };
 		50EAF52424CC5C6100A8AB8E /* Goods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goods.swift; sourceTree = "<group>"; };
 		50EAF52624CC5CC100A8AB8E /* GoodsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsResult.swift; sourceTree = "<group>"; };
@@ -230,6 +234,7 @@
 				50A8C6C324D5440700B9BA4E /* ReviewsResult.swift */,
 				50111EFB24C5CE000050DBD9 /* RegistrationResult.swift */,
 				50EAF52624CC5CC100A8AB8E /* GoodsResult.swift */,
+				50A8C6C824D846EF00B9BA4E /* BasketResult.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 				50111EFD24C5CE1B0050DBD9 /* Registration.swift */,
 				50EAF52424CC5C6100A8AB8E /* Goods.swift */,
 				50A8C6C124D543E700B9BA4E /* Reviews.swift */,
+				50A8C6CA24D847DB00B9BA4E /* Basket.swift */,
 				50111EF024C5CA4D0050DBD9 /* RequestFactory.swift */,
 			);
 			path = Network;
@@ -552,12 +558,14 @@
 			files = (
 				50EAF52524CC5C6100A8AB8E /* Goods.swift in Sources */,
 				50111EF324C5CA4D0050DBD9 /* RequestFactory.swift in Sources */,
+				50A8C6C924D846EF00B9BA4E /* BasketResult.swift in Sources */,
 				50EAF52724CC5CC100A8AB8E /* GoodsResult.swift in Sources */,
 				50111EFA24C5CA720050DBD9 /* DataRequest.swift in Sources */,
 				50111EEB24C5CA2D0050DBD9 /* User.swift in Sources */,
 				50111EEC24C5CA2D0050DBD9 /* AuthResult.swift in Sources */,
 				50111EFE24C5CE1B0050DBD9 /* Registration.swift in Sources */,
 				50111EFC24C5CE000050DBD9 /* RegistrationResult.swift in Sources */,
+				50A8C6CB24D847DB00B9BA4E /* Basket.swift in Sources */,
 				50111EF824C5CA720050DBD9 /* ErrorParser.swift in Sources */,
 				50111E8D24C2FAF80050DBD9 /* AppDelegate.swift in Sources */,
 				50A8C6C424D5440700B9BA4E /* ReviewsResult.swift in Sources */,

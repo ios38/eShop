@@ -145,5 +145,51 @@ class eShopTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 10)
     }
+    
+    //MARK: Basket
+    func testAddToBasket() {
+        let basket = Basket(errorParser: errorParser, session: Session())
+        basket.addToBasket(goodId: 123, quantity: 1) { [weak self] (response: AFDataResponse<ChangeBasketResult>) in
+            switch response.result {
+                case .failure(_):
+                    XCTFail()
+                case .success(let data):
+                    print("\n\(data)\n")
+                    XCTAssertEqual(data.result, 1)
+            }
+            self?.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10)
+    }
+    
+    func testGetBasket() {
+        let basket = Basket(errorParser: errorParser, session: Session())
+        basket.getBasket(userId: 123) { [weak self] (response: AFDataResponse<GetBasketResult>) in
+            switch response.result {
+                case .failure(_):
+                    XCTFail()
+                case .success(let data):
+                    print("\n\(data)\n")
+                    XCTAssert(true)
+            }
+            self?.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10)
+    }
+    
+    func testDeleteFromBasket() {
+        let basket = Basket(errorParser: errorParser, session: Session())
+        basket.deleteFromBasket(goodId: 123) { [weak self] (response: AFDataResponse<ChangeBasketResult>) in
+            switch response.result {
+                case .failure(_):
+                    XCTFail()
+                case .success(let data):
+                    print("\n\(data)\n")
+                    XCTAssertEqual(data.result, 1)
+            }
+            self?.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10)
+    }
 
 }

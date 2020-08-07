@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     //var auth: AuthRequestFactory?
     //var registration: RegistrationRequestFactory?
     //var goods: GoodsRequestFactory?
-    var reviews: ReviewsRequestFactory?
+    //var reviews: ReviewsRequestFactory?
+    var basket: BasketRequestFactory?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,6 +98,36 @@ class ViewController: UIViewController {
         }*/
         /*
         reviews.removeReview(reviewId: 123) { response in
+            switch response.result {
+            case .success(let good):
+                print(good)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }*/
+        
+        //self.basket = requestFactory.makeBasketRequestFactory()
+        //guard let basket = self.basket else { return }
+        /*
+        basket.addToBasket(goodId: 123, quantity: 1) { response in
+            switch response.result {
+            case .success(let good):
+                print(good)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }*/
+        /*
+        basket.getBasket(userId: 123) { response in
+            switch response.result {
+            case .success(let good):
+                print(good)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }*/
+        /*
+        basket.deleteFromBasket(goodId: 123) { response in
             switch response.result {
             case .success(let good):
                 print(good)
