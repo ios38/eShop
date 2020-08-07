@@ -34,6 +34,9 @@
 		50EAF52324CC582A00A8AB8E /* PostStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EAF52224CC582A00A8AB8E /* PostStub.swift */; };
 		50EAF52524CC5C6100A8AB8E /* Goods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EAF52424CC5C6100A8AB8E /* Goods.swift */; };
 		50EAF52724CC5CC100A8AB8E /* GoodsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EAF52624CC5CC100A8AB8E /* GoodsResult.swift */; };
+		50ED190124DD25AA00B3D491 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ED190024DD25AA00B3D491 /* RegisterController.swift */; };
+		50ED190324DD25DA00B3D491 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ED190224DD25DA00B3D491 /* LoginController.swift */; };
+		50ED190524DD286900B3D491 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ED190424DD286900B3D491 /* LoginView.swift */; };
 		CC6ACACFD32B4234C5DF2118 /* Pods_eShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 624DBD5E9DE204491AD69E3D /* Pods_eShop.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +94,9 @@
 		50EAF52224CC582A00A8AB8E /* PostStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostStub.swift; sourceTree = "<group>"; };
 		50EAF52424CC5C6100A8AB8E /* Goods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goods.swift; sourceTree = "<group>"; };
 		50EAF52624CC5CC100A8AB8E /* GoodsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsResult.swift; sourceTree = "<group>"; };
+		50ED190024DD25AA00B3D491 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		50ED190224DD25DA00B3D491 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		50ED190424DD286900B3D491 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		624DBD5E9DE204491AD69E3D /* Pods_eShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74AB345516A8D323E0849B3A /* Pods-eShopTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShopTests.debug.xcconfig"; path = "Target Support Files/Pods-eShopTests/Pods-eShopTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CD0C5EC601DC3C8F586B8040 /* Pods-eShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShop.debug.xcconfig"; path = "Target Support Files/Pods-eShop/Pods-eShop.debug.xcconfig"; sourceTree = "<group>"; };
@@ -249,6 +255,7 @@
 		50111EC324C302410050DBD9 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				50ED18FF24DD257000B3D491 /* User */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -274,6 +281,16 @@
 				50111EF724C5CA720050DBD9 /* DataRequest.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		50ED18FF24DD257000B3D491 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				50ED190024DD25AA00B3D491 /* RegisterController.swift */,
+				50ED190224DD25DA00B3D491 /* LoginController.swift */,
+				50ED190424DD286900B3D491 /* LoginView.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		EC73D957C97C13401FE6480A /* Pods */ = {
@@ -558,12 +575,15 @@
 			files = (
 				50EAF52524CC5C6100A8AB8E /* Goods.swift in Sources */,
 				50111EF324C5CA4D0050DBD9 /* RequestFactory.swift in Sources */,
+				50ED190124DD25AA00B3D491 /* RegisterController.swift in Sources */,
 				50A8C6C924D846EF00B9BA4E /* BasketResult.swift in Sources */,
 				50EAF52724CC5CC100A8AB8E /* GoodsResult.swift in Sources */,
 				50111EFA24C5CA720050DBD9 /* DataRequest.swift in Sources */,
+				50ED190524DD286900B3D491 /* LoginView.swift in Sources */,
 				50111EEB24C5CA2D0050DBD9 /* User.swift in Sources */,
 				50111EEC24C5CA2D0050DBD9 /* AuthResult.swift in Sources */,
 				50111EFE24C5CE1B0050DBD9 /* Registration.swift in Sources */,
+				50ED190324DD25DA00B3D491 /* LoginController.swift in Sources */,
 				50111EFC24C5CE000050DBD9 /* RegistrationResult.swift in Sources */,
 				50A8C6CB24D847DB00B9BA4E /* Basket.swift in Sources */,
 				50111EF824C5CA720050DBD9 /* ErrorParser.swift in Sources */,
