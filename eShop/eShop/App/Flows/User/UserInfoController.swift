@@ -34,19 +34,20 @@ class UserInfoController: UIViewController {
         self.userInfoView.nameTextField.text = self.user.name
         self.userInfoView.lastNametTextField.text = self.user.lastname
         
-        self.userInfoView.saveButton.addTarget(self, action: #selector(saveButtonAction), for: .touchUpInside)
+        self.userInfoView.saveButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        self.userInfoView.logoutButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
     
-    @objc func saveButtonAction() {
+    @objc func buttonAction(sender: UIButton) {
         UIView.animate(withDuration: 0.1,
         animations: {
-            self.userInfoView.saveButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-            self.userInfoView.saveButton.alpha = 0.7
+            sender.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+            sender.alpha = 0.7
         },
         completion: { _ in
             UIView.animate(withDuration: 0.1) {
-                self.userInfoView.saveButton.transform = CGAffineTransform.identity
-                self.userInfoView.saveButton.alpha = 1
+                sender.transform = CGAffineTransform.identity
+                sender.alpha = 1
             }
         })
     }

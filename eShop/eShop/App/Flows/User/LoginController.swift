@@ -13,6 +13,10 @@ final class LoginController: UIViewController {
     var loginView = LoginView()
     var auth: AuthRequestFactory?
     let requestFactory = RequestFactory()
+    
+    deinit {
+        print("LoginController deinitialized")
+    }
 
     override func loadView() {
         super.loadView()
@@ -37,10 +41,20 @@ final class LoginController: UIViewController {
         auth.login(userName: "user", password: "password") { response in
             switch response.result {
             case .success(let login):
-                //print(login)
-                let user = login.user
-                let userInfoController = UserInfoController(user: user)
-                self.navigationController?.pushViewController(userInfoController, animated: true)
+                UserSession.shared.user = login.user
+                
+                let tabBarController = TabBarController()
+                tabBarController.modalPresentationStyle = .fullScreen
+                
+                guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let sceneDelegate = windowScene.delegate as? SceneDelegate
+                else {
+                  return
+                }
+                
+                sceneDelegate.window?.rootViewController = tabBarController
+                self.present(tabBarController, animated: true, completion: nil)
+
             case .failure(let error):
                 print(error.localizedDescription)
             }

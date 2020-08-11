@@ -19,6 +19,7 @@ class UserInfoView: UIView {
     let nameTextField = UITextField()
     let lastNametTextField = UITextField()
     var saveButton = UIButton()
+    var logoutButton = UIButton()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -73,6 +74,10 @@ class UserInfoView: UIView {
         self.saveButton.setTitleColor(.systemBlue, for: .normal)
         self.addSubview(self.saveButton)
 
+        self.logoutButton.translatesAutoresizingMaskIntoConstraints = false
+        self.logoutButton.setTitle("Logout", for: .normal)
+        self.logoutButton.setTitleColor(.systemBlue, for: .normal)
+        self.addSubview(self.logoutButton)
     }
     
     func setupConstraints() {
@@ -125,9 +130,13 @@ class UserInfoView: UIView {
         }
         
         saveButton.snp.makeConstraints { make in
-            make.top.equalTo(self.lastNameLabel.snp.bottom).offset(50)
+            make.top.equalTo(self.lastNameLabel.snp.bottom).offset(60)
             make.centerX.equalToSuperview()
         }
 
+        logoutButton.snp.makeConstraints { make in
+            make.top.equalTo(self.saveButton.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+        }
     }
 }

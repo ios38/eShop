@@ -25,6 +25,10 @@
 		50111EFA24C5CA720050DBD9 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50111EF724C5CA720050DBD9 /* DataRequest.swift */; };
 		50111EFC24C5CE000050DBD9 /* RegistrationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50111EFB24C5CE000050DBD9 /* RegistrationResult.swift */; };
 		50111EFE24C5CE1B0050DBD9 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50111EFD24C5CE1B0050DBD9 /* Registration.swift */; };
+		503211EE24E2629F009DFB57 /* CatalogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503211ED24E2629F009DFB57 /* CatalogController.swift */; };
+		503211F024E263A2009DFB57 /* CatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503211EF24E263A2009DFB57 /* CatalogView.swift */; };
+		503211F224E2741A009DFB57 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503211F124E2741A009DFB57 /* TabBarController.swift */; };
+		503211F424E27C46009DFB57 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503211F324E27C46009DFB57 /* UserSession.swift */; };
 		505B674624CF0D320043E71A /* Good.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505B674524CF0D320043E71A /* Good.swift */; };
 		50A8C6C224D543E700B9BA4E /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8C6C124D543E700B9BA4E /* Reviews.swift */; };
 		50A8C6C424D5440700B9BA4E /* ReviewsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8C6C324D5440700B9BA4E /* ReviewsResult.swift */; };
@@ -86,6 +90,10 @@
 		50111EF724C5CA720050DBD9 /* DataRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
 		50111EFB24C5CE000050DBD9 /* RegistrationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationResult.swift; sourceTree = "<group>"; };
 		50111EFD24C5CE1B0050DBD9 /* Registration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
+		503211ED24E2629F009DFB57 /* CatalogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogController.swift; sourceTree = "<group>"; };
+		503211EF24E263A2009DFB57 /* CatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogView.swift; sourceTree = "<group>"; };
+		503211F124E2741A009DFB57 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		503211F324E27C46009DFB57 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		505B674524CF0D320043E71A /* Good.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Good.swift; sourceTree = "<group>"; };
 		50A8C6C124D543E700B9BA4E /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		50A8C6C324D5440700B9BA4E /* ReviewsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsResult.swift; sourceTree = "<group>"; };
@@ -257,6 +265,8 @@
 		50111EC324C302410050DBD9 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				503211F124E2741A009DFB57 /* TabBarController.swift */,
+				503211EC24E26239009DFB57 /* Catalog */,
 				50ED18FF24DD257000B3D491 /* User */,
 			);
 			path = Flows;
@@ -285,6 +295,15 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		503211EC24E26239009DFB57 /* Catalog */ = {
+			isa = PBXGroup;
+			children = (
+				503211EF24E263A2009DFB57 /* CatalogView.swift */,
+				503211ED24E2629F009DFB57 /* CatalogController.swift */,
+			);
+			path = Catalog;
+			sourceTree = "<group>";
+		};
 		50ED18FF24DD257000B3D491 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +311,7 @@
 				50ED190224DD25DA00B3D491 /* LoginController.swift */,
 				50ED192624DE89B200B3D491 /* UserInfoView.swift */,
 				50ED192824DE89C800B3D491 /* UserInfoController.swift */,
+				503211F324E27C46009DFB57 /* UserSession.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -578,13 +598,16 @@
 			files = (
 				50EAF52524CC5C6100A8AB8E /* Goods.swift in Sources */,
 				50111EF324C5CA4D0050DBD9 /* RequestFactory.swift in Sources */,
+				503211F424E27C46009DFB57 /* UserSession.swift in Sources */,
 				50ED192724DE89B200B3D491 /* UserInfoView.swift in Sources */,
 				50A8C6C924D846EF00B9BA4E /* BasketResult.swift in Sources */,
 				50EAF52724CC5CC100A8AB8E /* GoodsResult.swift in Sources */,
+				503211EE24E2629F009DFB57 /* CatalogController.swift in Sources */,
 				50111EFA24C5CA720050DBD9 /* DataRequest.swift in Sources */,
 				50ED190524DD286900B3D491 /* LoginView.swift in Sources */,
 				50111EEB24C5CA2D0050DBD9 /* User.swift in Sources */,
 				50111EEC24C5CA2D0050DBD9 /* AuthResult.swift in Sources */,
+				503211F024E263A2009DFB57 /* CatalogView.swift in Sources */,
 				50ED192924DE89C800B3D491 /* UserInfoController.swift in Sources */,
 				50111EFE24C5CE1B0050DBD9 /* Registration.swift in Sources */,
 				50ED190324DD25DA00B3D491 /* LoginController.swift in Sources */,
@@ -599,6 +622,7 @@
 				50A8C6C624D549CF00B9BA4E /* Review.swift in Sources */,
 				50A8C6C224D543E700B9BA4E /* Reviews.swift in Sources */,
 				50111EF124C5CA4D0050DBD9 /* Auth.swift in Sources */,
+				503211F224E2741A009DFB57 /* TabBarController.swift in Sources */,
 				505B674624CF0D320043E71A /* Good.swift in Sources */,
 				50111EF924C5CA720050DBD9 /* RequestRouter.swift in Sources */,
 			);
