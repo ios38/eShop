@@ -46,19 +46,6 @@ final class LoginController: UIViewController {
                 guard let parent = self.parent as? UserController else { return }
                 parent.addUserInfoController(user: login.user)
 
-                /*
-                let tabBarController = TabBarController()
-                tabBarController.modalPresentationStyle = .fullScreen
-                
-                guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                  let sceneDelegate = windowScene.delegate as? SceneDelegate
-                else {
-                  return
-                }
-                
-                sceneDelegate.window?.rootViewController = tabBarController
-                self.present(tabBarController, animated: true, completion: nil)
-                */
             case .failure(let error):
                 print(error.localizedDescription)
             }
