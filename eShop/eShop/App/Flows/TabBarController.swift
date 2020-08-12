@@ -13,13 +13,16 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let userInfoController = UserInfoController(user: UserSession.shared.user!)
-        userInfoController.tabBarItem = UITabBarItem(title: "User Info", image: UIImage(systemName: "person"), tag: 0)
+        //let userInfoController = UserInfoController(user: UserSession.shared.user!)
+        //userInfoController.tabBarItem = UITabBarItem(title: "User Info", image: UIImage(systemName: "person"), tag: 0)
+
+        let userController = UserController()
+        userController.tabBarItem = UITabBarItem(title: "User", image: UIImage(systemName: "person"), tag: 0)
 
         let catalogController = CatalogController()
         catalogController.tabBarItem = UITabBarItem(title: "Catalog", image: UIImage(systemName: "folder"), tag: 1)
 
-        let tabBarList = [userInfoController, catalogController]
+        let tabBarList = [userController, catalogController]
 
         viewControllers = tabBarList
         self.selectedIndex = 1

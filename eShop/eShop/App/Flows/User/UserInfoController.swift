@@ -11,7 +11,9 @@ import UIKit
 class UserInfoController: UIViewController {
     var user: User
     var userInfoView = UserInfoView()
-    
+    var auth: AuthRequestFactory?
+    let requestFactory = RequestFactory()
+
     init(user: User) {
         self.user = user
         super.init(nibName: nil, bundle: nil)
@@ -28,14 +30,15 @@ class UserInfoController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.auth = requestFactory.makeAuthRequestFactory()
+
         self.navigationItem.title = "User Info"
         self.userInfoView.loginTextField.text = self.user.login
         self.userInfoView.nameTextField.text = self.user.name
         self.userInfoView.lastNametTextField.text = self.user.lastname
         
         self.userInfoView.saveButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        self.userInfoView.logoutButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        self.userInfoView.logoutButton.addTarget(self, action: #selector(logoutButtonAction), for: .touchUpInside)
     }
     
     @objc func buttonAction(sender: UIButton) {
@@ -50,6 +53,20 @@ class UserInfoController: UIViewController {
                 sender.alpha = 1
             }
         })
+    }
+    
+    @objc func logoutButtonAction() {
+        guard let auth = self.auth else { return }
+        auth.logout(userId: 123) { response in
+            switch response.result {
+            case .success(let data):
+                guard data.result == 1, let parent = self.parent as? UserController else { return }
+                UserSession.shared.user = nil
+                parent.addLoginController()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 
 }
