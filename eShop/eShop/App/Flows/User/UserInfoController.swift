@@ -19,6 +19,10 @@ class UserInfoController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    deinit {
+        print("UserInfoController deinitialized")
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -60,9 +64,12 @@ class UserInfoController: UIViewController {
         auth.logout(userId: 123) { response in
             switch response.result {
             case .success(let data):
-                guard data.result == 1, let parent = self.parent as? UserController else { return }
-                UserSession.shared.user = nil
-                parent.addLoginController()
+                if data.result == 1 {
+                    UserSession.shared.user = nil
+                }
+                //guard data.result == 1, let parent = self.parent as? UserController else { return }
+                //UserSession.shared.user = nil
+                //parent.addLoginController()
             case .failure(let error):
                 print(error.localizedDescription)
             }

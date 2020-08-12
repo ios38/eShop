@@ -43,8 +43,8 @@ final class LoginController: UIViewController {
             case .success(let login):
                 UserSession.shared.user = login.user
                 
-                guard let parent = self.parent as? UserController else { return }
-                parent.addUserInfoController(user: login.user)
+                //guard let parent = self.parent as? UserController else { return }
+                //parent.addUserInfoController(user: login.user)
 
             case .failure(let error):
                 print(error.localizedDescription)

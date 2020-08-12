@@ -15,7 +15,17 @@ class UserController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addLoginController()
+        UserSession.shared.isAuth.addObserver(self, options: [.new, .initial], closure: { (user, _) in
+            guard let user = UserSession.shared.user else {
+                self.addLoginController()
+                return
+            }
+            self.addUserInfoController(user: user)
+        })
+
+        if UserSession.shared.user == nil {
+            addLoginController()
+        }
     }
     
     public func addLoginController() {

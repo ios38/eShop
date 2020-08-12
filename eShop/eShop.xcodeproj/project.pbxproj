@@ -30,6 +30,7 @@
 		503211F224E2741A009DFB57 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503211F124E2741A009DFB57 /* TabBarController.swift */; };
 		503211F424E27C46009DFB57 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503211F324E27C46009DFB57 /* UserSession.swift */; };
 		503211F624E37F2D009DFB57 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503211F524E37F2D009DFB57 /* UserController.swift */; };
+		50536F0024E43711007126AD /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50536EFF24E43711007126AD /* Observable.swift */; };
 		505B674624CF0D320043E71A /* Good.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505B674524CF0D320043E71A /* Good.swift */; };
 		50A8C6C224D543E700B9BA4E /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8C6C124D543E700B9BA4E /* Reviews.swift */; };
 		50A8C6C424D5440700B9BA4E /* ReviewsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8C6C324D5440700B9BA4E /* ReviewsResult.swift */; };
@@ -96,6 +97,7 @@
 		503211F124E2741A009DFB57 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		503211F324E27C46009DFB57 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		503211F524E37F2D009DFB57 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		50536EFF24E43711007126AD /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		505B674524CF0D320043E71A /* Good.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Good.swift; sourceTree = "<group>"; };
 		50A8C6C124D543E700B9BA4E /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		50A8C6C324D5440700B9BA4E /* ReviewsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsResult.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				50111EF424C5CA720050DBD9 /* Network */,
+				50536EFF24E43711007126AD /* Observable.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				50A8C6C624D549CF00B9BA4E /* Review.swift in Sources */,
 				50A8C6C224D543E700B9BA4E /* Reviews.swift in Sources */,
 				50111EF124C5CA4D0050DBD9 /* Auth.swift in Sources */,
+				50536F0024E43711007126AD /* Observable.swift in Sources */,
 				503211F224E2741A009DFB57 /* TabBarController.swift in Sources */,
 				505B674624CF0D320043E71A /* Good.swift in Sources */,
 				50111EF924C5CA720050DBD9 /* RequestRouter.swift in Sources */,

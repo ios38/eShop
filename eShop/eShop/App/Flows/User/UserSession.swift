@@ -10,5 +10,13 @@ import Foundation
 
 class UserSession {
     static let shared = UserSession()
-    var user: User?
+        
+    var user: User? {
+        didSet {
+            isAuth.value = user == nil ? false : true
+        }
+    }
+    
+    var isAuth = Observable<Bool>(false)
+
 }
