@@ -10,8 +10,8 @@ import UIKit
 
 class CatalogController: UIViewController, UITableViewDataSource {
     var catalogView = CatalogView()
-    var goods = [Good]()
-    var goodsRequestFactory: GoodsRequestFactory?
+    var catalog = [Product]()
+    var catalogRequestFactory: CatalogRequestFactory?
     let requestFactory = RequestFactory()
 
     override func loadView() {
@@ -22,17 +22,17 @@ class CatalogController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.catalogView.tableView.dataSource = self
-        loadGoods()
+        loadCatalog()
     }
     
-    func loadGoods() {
-        self.goodsRequestFactory = requestFactory.makeGoodsRequestFactory()
-        guard let goodsRequestFactory = self.goodsRequestFactory else { return }
-        goodsRequestFactory.getGoods(page: 1, category: 1) { response in
+    func loadCatalog() {
+        self.catalogRequestFactory = requestFactory.makeCatalogRequestFactory()
+        guard let catalogRequestFactory = self.catalogRequestFactory else { return }
+        catalogRequestFactory.getCatalog(page: 1, category: 1) { response in
             switch response.result {
             case .success(let catalog):
                 //print(catalog)
-                self.goods = catalog
+                self.catalog = catalog
                 self.catalogView.tableView.reloadData()
             case .failure(let error):
                 print(error.localizedDescription)
@@ -44,13 +44,13 @@ class CatalogController: UIViewController, UITableViewDataSource {
 //MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return goods.count
+        return catalog.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
-        cell.textLabel?.text = goods[indexPath.row].name
-        cell.detailTextLabel?.text = "\(goods[indexPath.row].price)"
+        cell.textLabel?.text = catalog[indexPath.row].name
+        cell.detailTextLabel?.text = "\(catalog[indexPath.row].price)"
         return cell
     }
     

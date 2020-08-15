@@ -71,9 +71,9 @@ class eShopTests: XCTestCase {
         wait(for: [expectation], timeout: 10)
     }
     
-    func testGetGoods() {
-        let goods = Goods(errorParser: errorParser, session: Session())
-        goods.getGoods(page: 1, category: 1) { [weak self] (response: AFDataResponse<GoodsResult>) in
+    func testGetCatalog() {
+        let catalog = Catalog(errorParser: errorParser, session: Session())
+        catalog.getCatalog(page: 1, category: 1) { [weak self] (response: AFDataResponse<CatalogResult>) in
             switch response.result {
                 case .failure(_):
                     XCTFail()
@@ -86,9 +86,9 @@ class eShopTests: XCTestCase {
         wait(for: [expectation], timeout: 10)
     }
 
-    func testGetGoodById() {
-        let goods = Goods(errorParser: errorParser, session: Session())
-        goods.getGoodById(goodId: 123) { [weak self] (response: AFDataResponse<GoodResult>) in
+    func testGetProductById() {
+        let catalog = Catalog(errorParser: errorParser, session: Session())
+        catalog.getProductById(productId: 123) { [weak self] (response: AFDataResponse<ProductResult>) in
             switch response.result {
                 case .failure(_):
                     XCTFail()
@@ -103,7 +103,7 @@ class eShopTests: XCTestCase {
     
     func testGetReviews() {
         let reviews = Reviews(errorParser: errorParser, session: Session())
-        reviews.getReviews(goodId: 123) { [weak self] (response: AFDataResponse<GetReviewsResult>) in
+        reviews.getReviews(productId: 123) { [weak self] (response: AFDataResponse<GetReviewsResult>) in
             switch response.result {
                 case .failure(_):
                     XCTFail()
@@ -118,7 +118,7 @@ class eShopTests: XCTestCase {
     
     func testAddReview() {
         let reviews = Reviews(errorParser: errorParser, session: Session())
-        reviews.addReview(goodId: 123, review: "Отличный товар!") { [weak self] (response: AFDataResponse<AddReviewResult>) in
+        reviews.addReview(productId: 123, review: "Отличный товар!") { [weak self] (response: AFDataResponse<AddReviewResult>) in
             switch response.result {
                 case .failure(_):
                     XCTFail()
@@ -148,7 +148,7 @@ class eShopTests: XCTestCase {
     
     func testAddToBasket() {
         let basket = Basket(errorParser: errorParser, session: Session())
-        basket.addToBasket(goodId: 123, quantity: 1) { [weak self] (response: AFDataResponse<ChangeBasketResult>) in
+        basket.addToBasket(productId: 123, quantity: 1) { [weak self] (response: AFDataResponse<ChangeBasketResult>) in
             switch response.result {
                 case .failure(_):
                     XCTFail()
@@ -178,7 +178,7 @@ class eShopTests: XCTestCase {
     
     func testDeleteFromBasket() {
         let basket = Basket(errorParser: errorParser, session: Session())
-        basket.deleteFromBasket(goodId: 123) { [weak self] (response: AFDataResponse<ChangeBasketResult>) in
+        basket.deleteFromBasket(productId: 123) { [weak self] (response: AFDataResponse<ChangeBasketResult>) in
             switch response.result {
                 case .failure(_):
                     XCTFail()

@@ -35,9 +35,9 @@ class RequestFactory {
         return Registration(errorParser: errorParser, session: commonSessionManager, queue: sessionQueue)
     }
 
-    func makeGoodsRequestFactory() -> GoodsRequestFactory {
+    func makeCatalogRequestFactory() -> CatalogRequestFactory {
         let errorParser = makeErrorParser()
-        return Goods(errorParser: errorParser, session: commonSessionManager, queue: sessionQueue)
+        return Catalog(errorParser: errorParser, session: commonSessionManager, queue: sessionQueue)
     }
     
     func makeReviewsRequestFactory() -> ReviewsRequestFactory {

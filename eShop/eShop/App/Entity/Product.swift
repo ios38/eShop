@@ -1,5 +1,5 @@
 //
-//  Good.swift
+//  Product.swift
 //  eShop
 //
 //  Created by Maksim Romanov on 27.07.2020.
@@ -9,7 +9,7 @@
 import Foundation
 //swiftlint:disable identifier_name
 
-struct Good: Codable {
+struct Product: Codable {
     let id: Int
     let name: String
     let price: Int
