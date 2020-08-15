@@ -146,7 +146,6 @@ class eShopTests: XCTestCase {
         wait(for: [expectation], timeout: 10)
     }
     
-    //MARK: Basket
     func testAddToBasket() {
         let basket = Basket(errorParser: errorParser, session: Session())
         basket.addToBasket(goodId: 123, quantity: 1) { [weak self] (response: AFDataResponse<ChangeBasketResult>) in
