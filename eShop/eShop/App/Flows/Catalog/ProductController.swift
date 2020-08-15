@@ -7,24 +7,51 @@
 //
 
 import UIKit
+import SnapKit
 
 class ProductController: UIViewController {
+    var product: Product
+    lazy var productInfoController = ProductInfoController(product: product)
+    lazy var productReviewsController = ProductReviewsController(product: product)
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    init(product: Product) {
+        self.product = product
+        super.init(nibName: nil, bundle: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-    */
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.title = product.name
+
+        addProductInfoController()
+        addProductReviewsController()
+    }
+    
+    private func addProductInfoController() {
+        self.addChild(self.productInfoController)
+        self.view.addSubview(self.productInfoController.view)
+        self.productInfoController.didMove(toParent: self)
+        
+        self.productInfoController.view.translatesAutoresizingMaskIntoConstraints = false
+        productInfoController.view.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+        }
+    }
+    
+    private func addProductReviewsController() {
+        self.addChild(self.productReviewsController)
+        self.view.addSubview(self.productReviewsController.view)
+        self.productReviewsController.didMove(toParent: self)
+        
+        self.productReviewsController.view.translatesAutoresizingMaskIntoConstraints = false
+        productReviewsController.view.snp.makeConstraints { make in
+            make.top.equalTo(productInfoController.view.snp.bottom)
+            make.bottom.leading.trailing.equalToSuperview()
+        }
+    }
 
 }

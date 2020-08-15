@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CatalogController: UIViewController, UITableViewDataSource {
+class CatalogController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var catalogView = CatalogView()
     var catalog = [Product]()
     var catalogRequestFactory: CatalogRequestFactory?
@@ -22,6 +22,7 @@ class CatalogController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.catalogView.tableView.dataSource = self
+        self.catalogView.tableView.delegate = self
         loadCatalog()
     }
     
@@ -38,20 +39,29 @@ class CatalogController: UIViewController, UITableViewDataSource {
                 print(error.localizedDescription)
             }
         }
-
     }
     
-//MARK: - UITableViewDataSource
+    //MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return catalog.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: "CatalogCell")
         cell.textLabel?.text = catalog[indexPath.row].name
         cell.detailTextLabel?.text = "\(catalog[indexPath.row].price)"
+        //cell.backgroundColor = .darkGray
         return cell
     }
-    
+
+    //MARK: - UITableViewDelegate
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let product = catalog[indexPath.row]
+        let productController = ProductController(product: product)
+        self.navigationController?.pushViewController(productController, animated: true)
+
+    }
 }

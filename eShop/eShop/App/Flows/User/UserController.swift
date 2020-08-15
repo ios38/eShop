@@ -28,7 +28,7 @@ class UserController: UIViewController {
         }
     }
     
-    public func addLoginController() {
+    func addLoginController() {
         self.view.subviews.forEach({ $0.removeFromSuperview() })
         self.children.forEach({ $0.removeFromParent()})
         
@@ -37,12 +37,13 @@ class UserController: UIViewController {
         self.view.addSubview(loginController.view)
         loginController.didMove(toParent: self)
         
+        loginController.view.translatesAutoresizingMaskIntoConstraints = false
         loginController.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
     
-    public func addUserInfoController(user: User) {
+    func addUserInfoController(user: User) {
         self.view.subviews.forEach({ $0.removeFromSuperview() })
         self.children.forEach({ $0.removeFromParent()})
         
@@ -51,6 +52,7 @@ class UserController: UIViewController {
         self.view.addSubview(userInfoController.view)
         userInfoController.didMove(toParent: self)
         
+        userInfoController.view.translatesAutoresizingMaskIntoConstraints = false
         userInfoController.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
