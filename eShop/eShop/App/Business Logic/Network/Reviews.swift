@@ -10,8 +10,8 @@ import Foundation
 import Alamofire
 
 protocol ReviewsRequestFactory {
-    func getReviews(goodId: Int, completionHandler: @escaping (AFDataResponse<GetReviewsResult>) -> Void)
-    func addReview(goodId: Int, review: String, completionHandler: @escaping (AFDataResponse<AddReviewResult>) -> Void)
+    func getReviews(productId: Int, completionHandler: @escaping (AFDataResponse<GetReviewsResult>) -> Void)
+    func addReview(productId: Int, review: String, completionHandler: @escaping (AFDataResponse<AddReviewResult>) -> Void)
     func removeReview(reviewId: Int, completionHandler: @escaping (AFDataResponse<RemoveReviewResult>) -> Void)
 }
 
@@ -33,13 +33,13 @@ class Reviews: AbstractRequestFactory {
 }
 
 extension Reviews: ReviewsRequestFactory {
-    func getReviews(goodId: Int, completionHandler: @escaping (AFDataResponse<GetReviewsResult>) -> Void) {
-        let requestModel = GetReviews(baseUrl: baseUrl, goodId: goodId)
+    func getReviews(productId: Int, completionHandler: @escaping (AFDataResponse<GetReviewsResult>) -> Void) {
+        let requestModel = GetReviews(baseUrl: baseUrl, productId: productId)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
-    func addReview(goodId: Int, review: String, completionHandler: @escaping (AFDataResponse<AddReviewResult>) -> Void) {
-        let requestModel = AddReview(baseUrl: baseUrl, goodId: goodId, review: review)
+    func addReview(productId: Int, review: String, completionHandler: @escaping (AFDataResponse<AddReviewResult>) -> Void) {
+        let requestModel = AddReview(baseUrl: baseUrl, productId: productId, review: review)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
@@ -56,10 +56,10 @@ extension Reviews {
         let method: HTTPMethod = .get
         //let path: String = ""
         let path: String = "getReviews"
-        let goodId: Int
+        let productId: Int
         var parameters: Parameters? {
             return [
-                "id_product": goodId
+                "id_product": productId
             ]
         }
     }
@@ -69,11 +69,11 @@ extension Reviews {
         let method: HTTPMethod = .get
         //let path: String = "addReview.json"
         let path: String = "addReview"
-        let goodId: Int
+        let productId: Int
         let review: String
         var parameters: Parameters? {
             return [
-                "id_product": goodId,
+                "id_product": productId,
                 "review": review
             ]
         }

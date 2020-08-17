@@ -24,11 +24,6 @@ class CatalogView: UIView {
     }
 
     func configureSubviews() {
-        self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.titleLabel.text = "Catalog"
-        self.titleLabel.textColor = .lightGray
-        self.addSubview(self.titleLabel)
-
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         //self.tableView.backgroundColor = .darkGray
         self.addSubview(self.tableView)
@@ -36,16 +31,10 @@ class CatalogView: UIView {
     }
     
     func setupConstraints() {
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(30)
-            make.centerX.equalToSuperview()
-        }
-
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(self.titleLabel.snp.bottom).offset(5)
-            //make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(64)
             make.leading.equalToSuperview()
-            make.trailing.equalToSuperview().inset(5)
+            make.trailing.equalToSuperview()
             make.bottom.equalToSuperview().inset(55)
         }
 

@@ -11,7 +11,7 @@ import Foundation
 struct GetBasketResult: Codable {
     let amount: Int
     let countGoods: Int
-    let contents: [Good]
+    let contents: [Product]
 }
 /*
  {

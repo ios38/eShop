@@ -1,5 +1,5 @@
 //
-//  GoodsResult.swift
+//  CatalogResult.swift
 //  eShop
 //
 //  Created by Maksim Romanov on 25.07.2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias GoodsResult = [Good]
+typealias CatalogResult = [Product]
 
 /*
 [
@@ -25,7 +25,7 @@ typealias GoodsResult = [Good]
 ]
 */
 
-struct GoodResult: Codable {
+struct ProductResult: Codable {
     let result: Int
     let name: String
     let price: Int

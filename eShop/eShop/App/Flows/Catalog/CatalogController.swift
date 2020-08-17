@@ -8,10 +8,10 @@
 
 import UIKit
 
-class CatalogController: UIViewController, UITableViewDataSource {
+class CatalogController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var catalogView = CatalogView()
-    var goods = [Good]()
-    var goodsRequestFactory: GoodsRequestFactory?
+    var catalog = [Product]()
+    var catalogRequestFactory: CatalogRequestFactory?
     let requestFactory = RequestFactory()
 
     override func loadView() {
@@ -22,36 +22,46 @@ class CatalogController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.catalogView.tableView.dataSource = self
-        loadGoods()
+        self.catalogView.tableView.delegate = self
+        loadCatalog()
     }
     
-    func loadGoods() {
-        self.goodsRequestFactory = requestFactory.makeGoodsRequestFactory()
-        guard let goodsRequestFactory = self.goodsRequestFactory else { return }
-        goodsRequestFactory.getGoods(page: 1, category: 1) { response in
+    func loadCatalog() {
+        self.catalogRequestFactory = requestFactory.makeCatalogRequestFactory()
+        guard let catalogRequestFactory = self.catalogRequestFactory else { return }
+        catalogRequestFactory.getCatalog(page: 1, category: 1) { response in
             switch response.result {
             case .success(let catalog):
                 //print(catalog)
-                self.goods = catalog
+                self.catalog = catalog
                 self.catalogView.tableView.reloadData()
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
-
     }
     
-//MARK: - UITableViewDataSource
+    //MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return goods.count
+        return catalog.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
-        cell.textLabel?.text = goods[indexPath.row].name
-        cell.detailTextLabel?.text = "\(goods[indexPath.row].price)"
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: "CatalogCell")
+        cell.textLabel?.text = catalog[indexPath.row].name
+        cell.detailTextLabel?.text = "\(catalog[indexPath.row].price)"
+        //cell.backgroundColor = .darkGray
         return cell
     }
-    
+
+    //MARK: - UITableViewDelegate
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let product = catalog[indexPath.row]
+        let productController = ProductController(product: product)
+        self.navigationController?.pushViewController(productController, animated: true)
+
+    }
 }

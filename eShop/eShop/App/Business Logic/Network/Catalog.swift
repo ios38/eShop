@@ -1,5 +1,5 @@
 //
-//  Goods.swift
+//  Catalog.swift
 //  eShop
 //
 //  Created by Maksim Romanov on 25.07.2020.
@@ -9,12 +9,12 @@
 import Foundation
 import Alamofire
 
-protocol GoodsRequestFactory {
-    func getGoods(page: Int, category: Int, completionHandler: @escaping (AFDataResponse<GoodsResult>) -> Void)
-    func getGoodById(goodId: Int, completionHandler: @escaping (AFDataResponse<GoodResult>) -> Void)
+protocol CatalogRequestFactory {
+    func getCatalog(page: Int, category: Int, completionHandler: @escaping (AFDataResponse<CatalogResult>) -> Void)
+    func getProductById(productId: Int, completionHandler: @escaping (AFDataResponse<ProductResult>) -> Void)
 }
 
-class Goods: AbstractRequestFactory {
+class Catalog: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let session: Session
     let queue: DispatchQueue?
@@ -31,20 +31,20 @@ class Goods: AbstractRequestFactory {
     }
 }
 
-extension Goods: GoodsRequestFactory {
-    func getGoods(page: Int, category: Int, completionHandler: @escaping (AFDataResponse<GoodsResult>) -> Void) {
-        let requestModel = Goods(baseUrl: baseUrl, page: page, category: category)
+extension Catalog: CatalogRequestFactory {
+    func getCatalog(page: Int, category: Int, completionHandler: @escaping (AFDataResponse<CatalogResult>) -> Void) {
+        let requestModel = Catalog(baseUrl: baseUrl, page: page, category: category)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 
-    func getGoodById(goodId: Int, completionHandler: @escaping (AFDataResponse<GoodResult>) -> Void) {
-        let requestModel = GoodById(baseUrl: baseUrl, goodId: goodId)
+    func getProductById(productId: Int, completionHandler: @escaping (AFDataResponse<ProductResult>) -> Void) {
+        let requestModel = ProductById(baseUrl: baseUrl, productId: productId)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension Goods {
-    struct Goods: RequestRouter {
+extension Catalog {
+    struct Catalog: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
         //let path: String = "catalogData.json"
@@ -59,15 +59,15 @@ extension Goods {
         }
     }
 
-    struct GoodById: RequestRouter {
+    struct ProductById: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
         //let path: String = "getGoodById.json"
         let path: String = "getGoodById"
-        let goodId: Int
+        let productId: Int
         var parameters: Parameters? {
             return [
-                "id_product": goodId
+                "id_product": productId
             ]
         }
     }

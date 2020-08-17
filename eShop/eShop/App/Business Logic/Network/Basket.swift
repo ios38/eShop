@@ -10,9 +10,9 @@ import Foundation
 import Alamofire
 
 protocol BasketRequestFactory {
-    func addToBasket(goodId: Int, quantity: Int, completionHandler: @escaping (AFDataResponse<ChangeBasketResult>) -> Void)
+    func addToBasket(productId: Int, quantity: Int, completionHandler: @escaping (AFDataResponse<ChangeBasketResult>) -> Void)
     func getBasket(userId: Int, completionHandler: @escaping (AFDataResponse<GetBasketResult>) -> Void)
-    func deleteFromBasket(goodId: Int, completionHandler: @escaping (AFDataResponse<ChangeBasketResult>) -> Void)
+    func deleteFromBasket(productId: Int, completionHandler: @escaping (AFDataResponse<ChangeBasketResult>) -> Void)
 }
 
 class Basket: AbstractRequestFactory {
@@ -34,8 +34,8 @@ class Basket: AbstractRequestFactory {
 
 extension Basket: BasketRequestFactory {
     
-    func addToBasket(goodId: Int, quantity: Int, completionHandler: @escaping (AFDataResponse<ChangeBasketResult>) -> Void) {
-        let requestModel = AddToBasket(baseUrl: baseUrl, goodId: goodId, quantity: quantity)
+    func addToBasket(productId: Int, quantity: Int, completionHandler: @escaping (AFDataResponse<ChangeBasketResult>) -> Void) {
+        let requestModel = AddToBasket(baseUrl: baseUrl, productId: productId, quantity: quantity)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
@@ -44,8 +44,8 @@ extension Basket: BasketRequestFactory {
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
-    func deleteFromBasket(goodId: Int, completionHandler: @escaping (AFDataResponse<ChangeBasketResult>) -> Void) {
-        let requestModel = DeleteFromBasket(baseUrl: baseUrl, goodId: goodId)
+    func deleteFromBasket(productId: Int, completionHandler: @escaping (AFDataResponse<ChangeBasketResult>) -> Void) {
+        let requestModel = DeleteFromBasket(baseUrl: baseUrl, productId: productId)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
@@ -69,11 +69,11 @@ extension Basket {
         let method: HTTPMethod = .get
         //let path: String = "addToBasket.json"
         let path: String = "addToBasket"
-        let goodId: Int
+        let productId: Int
         let quantity: Int
         var parameters: Parameters? {
             return [
-                "id_product": goodId,
+                "id_product": productId,
                 "quantity": quantity
             ]
         }
@@ -84,10 +84,10 @@ extension Basket {
         let method: HTTPMethod = .get
         //let path: String = "deleteFromBasket.json"
         let path: String = "deleteFromBasket"
-        let goodId: Int
+        let productId: Int
         var parameters: Parameters? {
             return [
-                "id_product": goodId
+                "id_product": productId
             ]
         }
     }
