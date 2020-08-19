@@ -22,6 +22,7 @@ class BasketController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.basketView.tableView.register(BasketCell.self, forCellReuseIdentifier: "BasketCell")
         self.basketView.tableView.dataSource = self
         loadBasket()
     }
@@ -33,7 +34,7 @@ class BasketController: UIViewController, UITableViewDataSource {
         basketRequestFactory.getBasket(userId: userId) { response in
             switch response.result {
             case .success(let basket):
-                print(basket)
+                //print(basket)
                 self.basket = basket.contents
                 self.basketView.tableView.reloadData()
             case .failure(let error):
@@ -49,9 +50,17 @@ class BasketController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: "BasketCell")
-        cell.textLabel?.text = basket[indexPath.row].name
-        cell.detailTextLabel?.text = "\(basket[indexPath.row].price)"
+        let dequeuedCell = tableView.dequeueReusableCell(withIdentifier: "BasketCell", for: indexPath)
+        guard let cell = dequeuedCell as? BasketCell else {
+            return dequeuedCell
+        }
+        let basketItem = basket[indexPath.row]
+        let cellModel = BasketCellModelFactory.cellModel(from: basketItem)
+        cell.configure(with: cellModel)
+
+        //let cell = UITableViewCell(style: .value1, reuseIdentifier: "BasketCell")
+        //cell.textLabel?.text = basket[indexPath.row].name
+        //cell.detailTextLabel?.text = "\(basket[indexPath.row].price)"
         //cell.backgroundColor = .darkGray
         return cell
     }
