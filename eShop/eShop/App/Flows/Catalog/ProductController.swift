@@ -13,10 +13,15 @@ class ProductController: UIViewController {
     var product: Product
     lazy var productInfoController = ProductInfoController(product: product)
     lazy var productReviewsController = ProductReviewsController(product: product)
+    var selectorClosure: (() -> Void)?
 
     init(product: Product) {
         self.product = product
         super.init(nibName: nil, bundle: nil)
+    }
+    
+    deinit {
+        print("ProductController deinitialized")
     }
     
     required init?(coder: NSCoder) {
@@ -54,4 +59,7 @@ class ProductController: UIViewController {
         }
     }
 
+    public func buyAction() {
+        self.selectorClosure?()
+    }
 }

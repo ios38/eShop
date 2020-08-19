@@ -12,6 +12,7 @@ class ProductInfoView: UIView {
     var productImageView = UIImageView(image: UIImage(systemName: "gift.fill"))
     var productNameLabel = UILabel()
     var productPriceLabel = UILabel()
+    var buyButton = UIButton(type: .system)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,7 +36,13 @@ class ProductInfoView: UIView {
         self.productPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         self.productPriceLabel.textColor = .lightGray
         self.addSubview(self.productPriceLabel)
-
+        
+        buyButton.translatesAutoresizingMaskIntoConstraints = false
+        buyButton.setTitle("Buy", for: .normal)
+        buyButton.titleLabel!.font = UIFont.boldSystemFont(ofSize: 16.0)
+        buyButton.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
+        buyButton.layer.cornerRadius = 15.0
+        self.addSubview(self.buyButton)
     }
 
     func setupConstraints() {
@@ -55,6 +62,12 @@ class ProductInfoView: UIView {
             make.leading.equalTo(productImageView.snp.trailing).offset(20)
         }
         
+        buyButton.snp.makeConstraints { make in
+            make.centerY.equalTo(productPriceLabel.snp.centerY)
+            make.leading.equalTo(productPriceLabel.snp.trailing).offset(25)
+            make.width.equalTo(50)
+        }
+
         self.snp.makeConstraints { make in
             make.bottom.equalTo(productPriceLabel.snp.bottom).offset(20)
         }
