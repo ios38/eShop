@@ -29,7 +29,7 @@ final class LoginController: UIViewController {
         self.auth = requestFactory.makeAuthRequestFactory()
         
         self.loginView.loginButton.addTarget(self, action: #selector(loginButtonAction), for: .touchUpInside)
-        self.loginView.registerButton.addTarget(self, action: #selector(loginButtonAction), for: .touchUpInside)
+        self.loginView.registerButton.addTarget(self, action: #selector(registerButtonAction), for: .touchUpInside)
     }
     
     @objc func loginButtonAction() {
@@ -53,11 +53,16 @@ final class LoginController: UIViewController {
     }
     
     @objc func registerButtonAction() {
+        print("This is test fatalError")
+        fatalError()
+
+        /*
         guard let login = self.loginView.loginTextField.text, login != "",
               let password = self.loginView.passwordTextField.text, password != ""
               else { print("login/password data error")
                      return }
         print("login user: \(login) password: \(password)")
+        */
     }
 
 }
