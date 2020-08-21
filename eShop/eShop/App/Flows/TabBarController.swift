@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class TabBarController: UITabBarController {
     
@@ -31,6 +32,8 @@ class TabBarController: UITabBarController {
 
         viewControllers = tabBarList
         self.selectedIndex = 1
+        Analytics.logEvent("TabBarController_loaded", parameters: nil)
+
     }
 
 }

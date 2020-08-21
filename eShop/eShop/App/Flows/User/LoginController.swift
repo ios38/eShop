@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import FirebaseAnalytics
 
 final class LoginController: UIViewController {
     var loginView = LoginView()
@@ -42,7 +43,8 @@ final class LoginController: UIViewController {
             switch response.result {
             case .success(let login):
                 UserSession.shared.user = login.user
-                
+                Analytics.logEvent("Success_login", parameters: ["username": "\(UserSession.shared.user!.name)"])
+
                 //guard let parent = self.parent as? UserController else { return }
                 //parent.addUserInfoController(user: login.user)
 
