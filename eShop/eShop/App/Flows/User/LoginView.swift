@@ -36,27 +36,25 @@ class LoginView: UIView {
         self.loginTextField.translatesAutoresizingMaskIntoConstraints = false
         self.loginTextField.borderStyle = .roundedRect
         self.loginTextField.placeholder = "Login"
+        self.loginTextField.accessibilityIdentifier = "userLoginTextField"
         self.addSubview(self.loginTextField)
         
         self.passwordLabel.translatesAutoresizingMaskIntoConstraints = false
         self.passwordLabel.text = "Password"
-        self.passwordLabel.textColor = UIColor.lightGray
+        self.passwordLabel.textColor = .lightGray
         self.addSubview(self.passwordLabel)
         
         self.passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        self.passwordTextField.isSecureTextEntry = true
         self.passwordTextField.borderStyle = .roundedRect
         self.passwordTextField.placeholder = "Password"
+        self.passwordTextField.accessibilityIdentifier = "userPasswordTextField"
         self.addSubview(self.passwordTextField)
-        
-        self.passwordLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.passwordTextField.isSecureTextEntry = true
-        self.passwordLabel.text = "Password"
-        self.passwordLabel.textColor = .lightGray
-        self.addSubview(self.passwordLabel)
         
         self.loginButton.translatesAutoresizingMaskIntoConstraints = false
         self.loginButton.setTitle("Login", for: .normal)
         self.loginButton.setTitleColor(.systemBlue, for: .normal)
+        self.loginButton.accessibilityIdentifier = "userLoginButton"
         self.addSubview(self.loginButton)
         
         self.registerButton.translatesAutoresizingMaskIntoConstraints = false

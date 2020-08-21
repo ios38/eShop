@@ -7,6 +7,8 @@
 //
 
 import XCTest
+@testable import eShop
+
 //swiftlint:disable type_name
 
 class eShopUITests: XCTestCase {
@@ -40,5 +42,35 @@ class eShopUITests: XCTestCase {
                 XCUIApplication().launch()
             }
         }
+    }
+    
+    func testLogin() throws {
+        
+        let app = XCUIApplication()
+        app.launch()
+
+
+        let userTabBarButton = app.tabBars.buttons["User"]
+        userTabBarButton.tap()
+        //let loginTextField = app.textFields["Login"]
+        
+        let userLoginTextField = app.textFields["userLoginTextField"]
+        userLoginTextField.tap()
+        userLoginTextField.typeText("user")
+        
+        let userPasswordTextField = app.secureTextFields["userPasswordTextField"]
+        userPasswordTextField.tap()
+        userPasswordTextField.typeText("123")
+        
+        app.buttons["userLoginButton"].tap()
+
+        //let delayExpectation = expectation(description: "Waiting for server response")
+        //DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        //    delayExpectation.fulfill()
+        //}
+        //waitForExpectations(timeout: 3)
+        
+        XCTAssertTrue(app.buttons["userLogoutButton"].waitForExistence(timeout: 1))
+
     }
 }

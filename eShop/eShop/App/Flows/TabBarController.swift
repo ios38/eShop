@@ -19,12 +19,15 @@ class TabBarController: UITabBarController {
         let catalogController = CatalogController()
         catalogController.navigationItem.title = "Catalog"
         
+        let basketController = BasketController()
+        basketController.tabBarItem = UITabBarItem(title: "Basket", image: UIImage(systemName: "cart"), tag: 2)
+
         let navigationController = UINavigationController()
         navigationController.tabBarItem = UITabBarItem(title: "Catalog", image: UIImage(systemName: "folder"), tag: 1)
         navigationController.viewControllers = [catalogController]
         //navigationController.navigationBar.backgroundColor = .darkGray
         
-        let tabBarList = [userController, navigationController]
+        let tabBarList = [userController, navigationController, basketController]
 
         viewControllers = tabBarList
         self.selectedIndex = 1

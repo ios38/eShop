@@ -11,6 +11,8 @@ import UIKit
 class ProductInfoController: UIViewController {
     var product: Product
     var productInfoView = ProductInfoView()
+    var basketRequestFactory: BasketRequestFactory?
+    let requestFactory = RequestFactory()
 
     init(product: Product) {
         self.product = product
@@ -26,10 +28,27 @@ class ProductInfoController: UIViewController {
         self.view = productInfoView
         productInfoView.productNameLabel.text = product.name
         productInfoView.productPriceLabel.text = "price: \(product.price)"
+        productInfoView.buyButton.addTarget(self, action: #selector(buyButtonAction), for: .touchUpInside)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    @objc func buyButtonAction() {
+        self.basketRequestFactory = requestFactory.makeBasketRequestFactory()
+        
+        guard let basketRequestFactory = self.basketRequestFactory else { return }
+        basketRequestFactory.addToBasket(productId: self.product.id, quantity: 1) { response in
+            switch response.result {
+            case .success:
+                self.tabBarController?.selectedIndex = 2
+                self.navigationController?.popViewController(animated: true)
+                print("Product '\(self.product.name)' added to basket")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

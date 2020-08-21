@@ -77,6 +77,7 @@ class UserInfoView: UIView {
         self.logoutButton.translatesAutoresizingMaskIntoConstraints = false
         self.logoutButton.setTitle("Logout", for: .normal)
         self.logoutButton.setTitleColor(.systemBlue, for: .normal)
+        self.logoutButton.accessibilityIdentifier = "userLogoutButton"
         self.addSubview(self.logoutButton)
     }
     
