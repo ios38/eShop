@@ -8,6 +8,8 @@ target 'eShop' do
   # Pods for eShop
   pod 'Alamofire'
   pod 'SnapKit'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Crashlytics'
 
   target 'eShopTests' do
     inherit! :search_paths

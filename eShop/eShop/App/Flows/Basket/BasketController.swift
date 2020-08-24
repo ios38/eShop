@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class BasketController: UIViewController, UITableViewDataSource {
     var basketView = BasketView()
@@ -17,6 +18,7 @@ class BasketController: UIViewController, UITableViewDataSource {
     override func loadView() {
         super.loadView()
         self.view = basketView
+        Analytics.logEvent("load_BasketController", parameters: nil)
     }
 
     override func viewDidLoad() {

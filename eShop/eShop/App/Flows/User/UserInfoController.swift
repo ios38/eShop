@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class UserInfoController: UIViewController {
     var user: User
@@ -64,9 +65,11 @@ class UserInfoController: UIViewController {
         auth.logout(userId: 123) { response in
             switch response.result {
             case .success(let data):
+                Analytics.logEvent("User_logout", parameters: ["username": "\(UserSession.shared.user!.name)"])
                 if data.result == 1 {
                     UserSession.shared.user = nil
                 }
+
                 //guard data.result == 1, let parent = self.parent as? UserController else { return }
                 //UserSession.shared.user = nil
                 //parent.addLoginController()

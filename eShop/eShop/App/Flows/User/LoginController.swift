@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import FirebaseAnalytics
 
 final class LoginController: UIViewController {
     var loginView = LoginView()
@@ -29,7 +30,7 @@ final class LoginController: UIViewController {
         self.auth = requestFactory.makeAuthRequestFactory()
         
         self.loginView.loginButton.addTarget(self, action: #selector(loginButtonAction), for: .touchUpInside)
-        self.loginView.registerButton.addTarget(self, action: #selector(loginButtonAction), for: .touchUpInside)
+        self.loginView.registerButton.addTarget(self, action: #selector(registerButtonAction), for: .touchUpInside)
     }
     
     @objc func loginButtonAction() {
@@ -42,7 +43,8 @@ final class LoginController: UIViewController {
             switch response.result {
             case .success(let login):
                 UserSession.shared.user = login.user
-                
+                Analytics.logEvent("Success_login", parameters: ["username": "\(UserSession.shared.user!.name)"])
+
                 //guard let parent = self.parent as? UserController else { return }
                 //parent.addUserInfoController(user: login.user)
 
@@ -53,11 +55,16 @@ final class LoginController: UIViewController {
     }
     
     @objc func registerButtonAction() {
+        print("This is test fatalError")
+        fatalError()
+
+        /*
         guard let login = self.loginView.loginTextField.text, login != "",
               let password = self.loginView.passwordTextField.text, password != ""
               else { print("login/password data error")
                      return }
         print("login user: \(login) password: \(password)")
+        */
     }
 
 }
