@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import FirebaseAnalytics
 
 class ProductController: UIViewController {
     var product: Product
@@ -26,6 +27,11 @@ class ProductController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func loadView() {
+        super.loadView()
+        Analytics.logEvent("load_ProductController", parameters: ["product": product.name])
     }
     
     override func viewDidLoad() {

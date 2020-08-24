@@ -8,10 +8,16 @@
 
 import UIKit
 import SnapKit
+import FirebaseAnalytics
 
 class UserController: UIViewController {
     var user: User?
 
+    override func loadView() {
+        super.loadView()
+        Analytics.logEvent("load_UserController", parameters: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,6 +47,7 @@ class UserController: UIViewController {
         loginController.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        Analytics.logEvent("add_LoginController", parameters: nil)
     }
     
     func addUserInfoController(user: User) {
@@ -56,6 +63,7 @@ class UserController: UIViewController {
         userInfoController.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        Analytics.logEvent("add_UserInfoController", parameters: nil)
     }
 
 }

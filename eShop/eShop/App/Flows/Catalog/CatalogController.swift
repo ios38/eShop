@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class CatalogController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var catalogView = CatalogView()
@@ -17,6 +18,7 @@ class CatalogController: UIViewController, UITableViewDataSource, UITableViewDel
     override func loadView() {
         super.loadView()
         self.view = catalogView
+        Analytics.logEvent("load_CatalogController", parameters: nil)
     }
 
     override func viewDidLoad() {

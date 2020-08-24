@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class ProductInfoController: UIViewController {
     var product: Product
@@ -43,6 +44,7 @@ class ProductInfoController: UIViewController {
         basketRequestFactory.addToBasket(productId: self.product.id, quantity: 1) { response in
             switch response.result {
             case .success:
+                Analytics.logEvent("Product_added_to_Basket", parameters: ["product": self.product.name])
                 self.tabBarController?.selectedIndex = 2
                 self.navigationController?.popViewController(animated: true)
                 print("Product '\(self.product.name)' added to basket")
